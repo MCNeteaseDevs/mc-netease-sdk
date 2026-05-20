@@ -143,7 +143,12 @@ sidebarDepth: 1
 | 接口 | <div style="width: 3em"></div> | 描述 |
 | --- | --- | --- |
 | [AddBoxGeometry](物理.md#addboxgeometry) | <span style="display:inline;color:#ff5555">服务端</span> | 给自定义刚体创建盒形碰撞体 |
+| [AddBoxTrigger](物理.md#addboxtrigger) | <span style="display:inline;color:#ff5555">服务端</span> | 给自定义刚体创建盒子形触发器 |
+| [AddCapsuleGeometry](物理.md#addcapsulegeometry) | <span style="display:inline;color:#ff5555">服务端</span> | 给自定义刚体创建胶囊形碰撞体 |
 | [AddForce](物理.md#addforce) | <span style="display:inline;color:#ff5555">服务端</span> | 对自定义刚体的质心添加力，对运动学刚体无效 |
+| [AddForceAtPos](物理.md#addforceatpos) | <span style="display:inline;color:#ff5555">服务端</span> | 对自定义刚体的指定位置添加力，对运动学刚体无效 |
+| [AddForceAtPosLocal](物理.md#addforceatposlocal) | <span style="display:inline;color:#ff5555">服务端</span> | 对自定义刚体的指定位置添加力，对运动学刚体无效 |
+| [AddSphereGeometry](物理.md#addspheregeometry) | <span style="display:inline;color:#ff5555">服务端</span> | 给自定义刚体创建球形碰撞体 |
 | [CreatePxActor](物理.md#createpxactor) | <span style="display:inline;color:#ff5555">服务端</span> | 给实体创建自定义刚体 |
 | [GetQuaternion](物理.md#getquaternion) | <span style="display:inline;color:#ff5555">服务端</span> | 获取自定义刚体的四元数旋转 |
 | [GetQuaternion](物理.md#getquaternion) | <span style="display:inline;color:#7575f9">客户端</span> | 获取自定义刚体的四元数旋转 |
@@ -576,9 +581,9 @@ sidebarDepth: 1
 #### 行为
 | 接口| <div style="width: 3em"></div> | 描述 |
 | --- | --- | --- |
-| [EntityUseItemToPos](世界/行为.md#entityuseitemtopos) | <span style="display:inline;color:#ff5555">服务端</span> | 模拟实体对某个坐标使用指定物品。 |
 | [UseItemAttackEntity](世界/行为.md#useitemattackentity) | <span style="display:inline;color:#ff5555">服务端</span> | 使用指定物品攻击某个实体。 |
 | [UseItemToEntity](世界/行为.md#useitemtoentity) | <span style="display:inline;color:#ff5555">服务端</span> | 模拟对某个实体使用物品。 |
+| [UseItemToPos](世界/行为.md#useitemtopos) | <span style="display:inline;color:#ff5555">服务端</span> | 对某个方块使用指定物品。 |
 #### 实体类型
 | 接口| <div style="width: 3em"></div> | 描述 |
 | --- | --- | --- |
@@ -596,8 +601,10 @@ sidebarDepth: 1
 #### 属性
 | 接口| <div style="width: 3em"></div> | 描述 |
 | --- | --- | --- |
+| [AddModifier](实体/属性.md#addmodifier) | <span style="display:inline;color:#ff5555">服务端</span> | 为指定生物增加属性修饰符 |
 | [ChangeEntityDimension](实体/属性.md#changeentitydimension) | <span style="display:inline;color:#ff5555">服务端</span> | 传送实体 |
 | [GetAllComponentsName](实体/属性.md#getallcomponentsname) | <span style="display:inline;color:#ff5555">服务端</span> | 获取实体所拥有的原版组件list |
+| [GetAllModifiers](实体/属性.md#getallmodifiers) | <span style="display:inline;color:#ff5555">服务端</span> | 获取指定生物的某属性所有属性修饰符 |
 | [GetAttrMaxValue](实体/属性.md#getattrmaxvalue) | <span style="display:inline;color:#ff5555">服务端</span> | 获取实体的引擎属性的最大值 |
 | [GetAttrMaxValue](实体/属性.md#getattrmaxvalue) | <span style="display:inline;color:#7575f9">客户端</span> | 获取属性最大值，包括生命值，饥饿度，移速等 |
 | [GetAttrValue](实体/属性.md#getattrvalue) | <span style="display:inline;color:#ff5555">服务端</span> | 获取实体的引擎属性 |
@@ -637,6 +644,7 @@ sidebarDepth: 1
 | [GetVariant](实体/属性.md#getvariant) | <span style="display:inline;color:#ff5555">服务端</span> | 获取实体的变种属性值 |
 | [HasChest](实体/属性.md#haschest) | <span style="display:inline;color:#ff5555">服务端</span> | 判断生物是否背负了箱子，截止至网易2.9版本，只对羊驼、驴、骡生效 |
 | [HasComponent](实体/属性.md#hascomponent) | <span style="display:inline;color:#ff5555">服务端</span> | 判断实体是否有原版组件 |
+| [HasModifier](实体/属性.md#hasmodifier) | <span style="display:inline;color:#ff5555">服务端</span> | 获取指定生物是否含有属性修饰符 |
 | [HasSaddle](实体/属性.md#hassaddle) | <span style="display:inline;color:#ff5555">服务端</span> | 判断实体是否装备了鞍 |
 | [IsAngry](实体/属性.md#isangry) | <span style="display:inline;color:#ff5555">服务端</span> | 判断实体是否处于激怒状态 |
 | [IsBaby](实体/属性.md#isbaby) | <span style="display:inline;color:#ff5555">服务端</span> | 判断实体是否为幼年 |
@@ -650,6 +658,7 @@ sidebarDepth: 1
 | [IsTamed](实体/属性.md#istamed) | <span style="display:inline;color:#ff5555">服务端</span> | 判断实体是否被驯服 |
 | [LockLocalPlayerRot](实体/属性.md#locklocalplayerrot) | <span style="display:inline;color:#7575f9">客户端</span> | 在分离摄像机时，锁定本地玩家的头部角度 |
 | [PromoteToIllagerCaptain](实体/属性.md#promotetoillagercaptain) | <span style="display:inline;color:#ff5555">服务端</span> | 晋升实体为袭击队长，截止至网易2.9版本，只对掠夺者和卫道士有效 |
+| [RemoveModifier](实体/属性.md#removemodifier) | <span style="display:inline;color:#ff5555">服务端</span> | 为指定生物移除属性修饰符 |
 | [ResetToDefaultValue](实体/属性.md#resettodefaultvalue) | <span style="display:inline;color:#ff5555">服务端</span> | 重置实体引擎属性到默认值 |
 | [ResetToMaxValue](实体/属性.md#resettomaxvalue) | <span style="display:inline;color:#ff5555">服务端</span> | 重置实体引擎属性到最大值 |
 | [SetAngry](实体/属性.md#setangry) | <span style="display:inline;color:#ff5555">服务端</span> | 设置实体是否处于激怒状态 |
@@ -682,6 +691,7 @@ sidebarDepth: 1
 | [SetSize](实体/属性.md#setsize) | <span style="display:inline;color:#ff5555">服务端</span> | 设置实体的包围盒。设置过大会导致游戏卡顿。实体的scale的立方乘以包围盒的体积不可超过32768 |
 | [SetTradeLevel](实体/属性.md#settradelevel) | <span style="display:inline;color:#ff5555">服务端</span> | 设置村民的交易等级 |
 | [SetVariant](实体/属性.md#setvariant) | <span style="display:inline;color:#ff5555">服务端</span> | 设置实体的变种属性值 |
+| [UpdateModifier](实体/属性.md#updatemodifier) | <span style="display:inline;color:#ff5555">服务端</span> | 为指定生物更新属性修饰符 |
 | [isEntityInLava](实体/属性.md#isentityinlava) | <span style="display:inline;color:#7575f9">客户端</span> | 实体是否在岩浆中 |
 | [isEntityOnGround](实体/属性.md#isentityonground) | <span style="display:inline;color:#7575f9">客户端</span> | 实体是否触地 |
 #### 行为<span id = "行为1"></span>
@@ -799,6 +809,7 @@ sidebarDepth: 1
 | [GetEntityRenderDistance](实体/渲染.md#getentityrenderdistance) | <span style="display:inline;color:#7575f9">客户端</span> | 获取玩家的实体可渲染距离。玩家周围的实体指这个区块内的实体，也包含玩家自身。实体的渲染距离指，实体的位置到玩家相机位置的距离。可渲染距离指，如果实体的渲染距离在可渲染距离之内，则实体会被渲染出来，如果在距离以外，则实体不会被渲染出来。仅对本地玩家有效。 |
 | [GetEntityUIExtraUniforms](实体/渲染.md#getentityuiextrauniforms) | <span style="display:inline;color:#7575f9">客户端</span> | 获取在实体shader当中使用的UI自定义变量的值，该变量可在微软UI纸娃娃（paperdoll）及网易版纸娃娃（neteasepaperdoll)上使用identifier渲染某一类生物实体时使用。该自定义变量包含EXTRA_ACTOR_UNIFORM1,EXTRA_ACTOR_UNIFORM2,EXTRA_ACTOR_UNIFORM3,EXTRA_ACTOR_UNIFORM4，总共4组，每组为一个vec4(float, float, float ,float)类型的向量。 |
 | [GetNotRenderAtAll](实体/渲染.md#getnotrenderatall) | <span style="display:inline;color:#7575f9">客户端</span> | 获取实体是否不渲染 |
+| [GetQueryableBoneOrientation](实体/渲染.md#getqueryableboneorientation) | <span style="display:inline;color:#7575f9">客户端</span> | 获取实体的原版模型指定骨骼的骨骼矩阵信息。 |
 | [IsShowName](实体/渲染.md#isshowname) | <span style="display:inline;color:#7575f9">客户端</span> | 获取生物名字是否按照默认游戏逻辑显示（包括玩家） |
 | [RebuildActorRender](实体/渲染.md#rebuildactorrender) | <span style="display:inline;color:#7575f9">客户端</span> | 重建生物的数据渲染器（该接口不支持玩家，玩家请使用RebuildPlayerRender） |
 | [RebuildRenderForOneActor](实体/渲染.md#rebuildrenderforoneactor) | <span style="display:inline;color:#7575f9">客户端</span> | 使用完entity类渲染接口后，重建单个生物渲染控制器（该接口不支持玩家，玩家请使用RebuildPlayerRender） |
@@ -812,6 +823,7 @@ sidebarDepth: 1
 | [RemoveTextureForOneActor](实体/渲染.md#removetextureforoneactor) | <span style="display:inline;color:#7575f9">客户端</span> | 删除单个生物的渲染贴图 |
 | [ResetActorRender](实体/渲染.md#resetactorrender) | <span style="display:inline;color:#7575f9">客户端</span> | 重置实体渲染接口，包括动画、动画控制器、渲染控制器、贴图、材质、特效资源、音效资源等。 |
 | [ResetBindEntity](实体/渲染.md#resetbindentity) | <span style="display:inline;color:#7575f9">客户端</span> | 取消目标entity的绑定实体，取消后不再跟随任何其他entity |
+| [ResetEntityExtraSkin](实体/渲染.md#resetentityextraskin) | <span style="display:inline;color:#7575f9">客户端</span> | 清除通过 actorRender 接口为实体（包括玩家）额外添加的皮肤渲染组件（几何体、动画、动画控制器、贴图、材质、渲染控制器），还原实体到原始渲染状态。 |
 | [ResetRenderForOneActor](实体/渲染.md#resetrenderforoneactor) | <span style="display:inline;color:#7575f9">客户端</span> | 将调用OneActor类渲染接口(CopyPlayerTextureToOneActor、CopyPlayerRenderMaterialToOneActor等)的生物重置回种群 |
 | [SetActorAllBlockGeometryVisible](实体/渲染.md#setactorallblockgeometryvisible) | <span style="display:inline;color:#7575f9">客户端</span> | 设置实体中所有的方块几何体模型是否显示。 |
 | [SetActorBlockGeometryVisible](实体/渲染.md#setactorblockgeometryvisible) | <span style="display:inline;color:#7575f9">客户端</span> | 设置实体中指定的方块几何体模型是否显示。 |
@@ -965,6 +977,8 @@ sidebarDepth: 1
 | [GetPlayerDestroyTotalTime](玩家/行为.md#getplayerdestroytotaltime) | <span style="display:inline;color:#7575f9">客户端</span> | 获取玩家破坏方块需要的时间，受玩家状态（急迫、潮涌、挖掘疲劳）和手持物及手持物附魔（效率）影响 |
 | [GetPlayerExhaustionRatioByType](玩家/行为.md#getplayerexhaustionratiobytype) | <span style="display:inline;color:#ff5555">服务端</span> | 获取玩家某行为饥饿度消耗倍率 |
 | [GetPlayerInteracteRange](玩家/行为.md#getplayerinteracterange) | <span style="display:inline;color:#ff5555">服务端</span> | 获取玩家服务端的交互距离 |
+| [GetPlayerIsFishing](玩家/行为.md#getplayerisfishing) | <span style="display:inline;color:#ff5555">服务端</span> | 获取玩家是否在钓鱼 |
+| [GetPlayerIsFishing](玩家/行为.md#getplayerisfishing) | <span style="display:inline;color:#7575f9">客户端</span> | 获取玩家是否在钓鱼 |
 | [GetPlayerMotions](玩家/行为.md#getplayermotions) | <span style="display:inline;color:#ff5555">服务端</span> | 获取玩家身上的所有运动器 |
 | [GetPlayerRespawnPos](玩家/行为.md#getplayerrespawnpos) | <span style="display:inline;color:#ff5555">服务端</span> | 获取玩家复活点 |
 | [GetRelevantPlayer](玩家/行为.md#getrelevantplayer) | <span style="display:inline;color:#ff5555">服务端</span> | 获取附近玩家id列表 |
@@ -977,7 +991,7 @@ sidebarDepth: 1
 | [OpenWorkBench](玩家/行为.md#openworkbench) | <span style="display:inline;color:#ff5555">服务端</span> | 在玩家当前位置打开工作台UI，不依赖于工作台方块 |
 | [PickUpItemEntity](玩家/行为.md#pickupitementity) | <span style="display:inline;color:#ff5555">服务端</span> | 某个Player拾取物品ItemEntity |
 | [PlayerAttackEntity](玩家/行为.md#playerattackentity) | <span style="display:inline;color:#ff5555">服务端</span> | 玩家使用手持武器攻击某个生物 |
-| [PlayerDestoryBlock](玩家/行为.md#playerdestoryblock) | <span style="display:inline;color:#ff5555">服务端</span> | 使用手上工具破坏方块 |
+| [PlayerDestroyBlock](玩家/行为.md#playerdestroyblock) | <span style="display:inline;color:#ff5555">服务端</span> | 使用手上工具破坏方块 |
 | [PlayerUseItemToEntity](玩家/行为.md#playeruseitemtoentity) | <span style="display:inline;color:#ff5555">服务端</span> | 玩家使用手上物品对某个生物使用 |
 | [PlayerUseItemToPos](玩家/行为.md#playeruseitemtopos) | <span style="display:inline;color:#ff5555">服务端</span> | 模拟玩家对某个坐标使用物品 |
 | [RemovePlayerMotion](玩家/行为.md#removeplayermotion) | <span style="display:inline;color:#ff5555">服务端</span> | 移除玩家身上的运动器 |
@@ -1041,6 +1055,10 @@ sidebarDepth: 1
 | [GetOffhandItem](玩家/背包.md#getoffhanditem) | <span style="display:inline;color:#7575f9">客户端</span> | 获取左手物品的信息 |
 | [GetPlayerAllItems](玩家/背包.md#getplayerallitems) | <span style="display:inline;color:#ff5555">服务端</span> | 获取玩家指定的槽位的批量物品信息 |
 | [GetPlayerAllItems](玩家/背包.md#getplayerallitems) | <span style="display:inline;color:#7575f9">客户端</span> | 获取玩家指定的槽位的批量物品信息，支持获取盔甲栏，副手以及主手物品，背包物品仅支持本地玩家 |
+| [GetPlayerFishHookEntity](玩家/背包.md#getplayerfishhookentity) | <span style="display:inline;color:#ff5555">服务端</span> | 获取玩家钓鱼时候的鱼漂实体id |
+| [GetPlayerFishHookEntity](玩家/背包.md#getplayerfishhookentity) | <span style="display:inline;color:#7575f9">客户端</span> | 获取玩家钓鱼时候的鱼漂实体id |
+| [GetPlayerFishItem](玩家/背包.md#getplayerfishitem) | <span style="display:inline;color:#ff5555">服务端</span> | 获取玩家钓鱼时候的鱼竿物品字典 |
+| [GetPlayerFishItem](玩家/背包.md#getplayerfishitem) | <span style="display:inline;color:#7575f9">客户端</span> | 获取玩家钓鱼时候的鱼竿物品字典 |
 | [GetPlayerItem](玩家/背包.md#getplayeritem) | <span style="display:inline;color:#ff5555">服务端</span> | 获取玩家物品，支持获取背包，盔甲栏，副手以及主手物品 |
 | [GetPlayerItem](玩家/背包.md#getplayeritem) | <span style="display:inline;color:#7575f9">客户端</span> | 获取玩家物品，支持获取背包（本地玩家），盔甲栏，副手以及主手物品 |
 | [GetSelectSlotId](玩家/背包.md#getselectslotid) | <span style="display:inline;color:#ff5555">服务端</span> | 获取玩家当前选中槽位 |
@@ -1078,6 +1096,7 @@ sidebarDepth: 1
 | [LockPerspective](玩家/摄像机.md#lockperspective) | <span style="display:inline;color:#7575f9">客户端</span> | 锁定玩家的视角模式 |
 | [RemoveCameraMotion](玩家/摄像机.md#removecameramotion) | <span style="display:inline;color:#7575f9">客户端</span> | 移除相机上的某个运动器 |
 | [ResetCameraBindActorId](玩家/摄像机.md#resetcamerabindactorid) | <span style="display:inline;color:#7575f9">客户端</span> | 将摄像机重新绑定回主角身上 |
+| [ResetCameraPos](玩家/摄像机.md#resetcamerapos) | <span style="display:inline;color:#7575f9">客户端</span> | 重置相机位置模式，使相机恢复跟随玩家。用于取消SetCameraPos设置的独立相机位置。 |
 | [SetCameraAnchor](玩家/摄像机.md#setcameraanchor) | <span style="display:inline;color:#7575f9">客户端</span> | 设置相机锚点 |
 | [SetCameraBindActorId](玩家/摄像机.md#setcamerabindactorid) | <span style="display:inline;color:#7575f9">客户端</span> | 将摄像机绑定到目标实体身上（调用者与目标必须在同一个dimension，同时需要在加载范围之内，若绑定后目标离开了范围或者死亡，则会自动解除绑定） |
 | [SetCameraDistanceFixed](玩家/摄像机.md#setcameradistancefixed) | <span style="display:inline;color:#7575f9">客户端</span> | 设置相机弹簧臂固定，即设置当相机遇到阻挡时是否压缩与人物之间的距离 |
@@ -1254,12 +1273,18 @@ sidebarDepth: 1
 #### 物品<span id = "物品2"></span>
 | 接口 | <div style="width: 3em"></div> | 描述 |
 | --- | --- | --- |
-| [CancelShearsDestoryBlockSpeed](物品.md#cancelshearsdestoryblockspeed) | <span style="display:inline;color:#ff5555">服务端</span> |  取消剪刀对某一方块的破坏速度设置 |
-| [CancelShearsDestoryBlockSpeedAll](物品.md#cancelshearsdestoryblockspeedall) | <span style="display:inline;color:#ff5555">服务端</span> |  取消剪刀对全部方块的破坏速度设置 |
+| [BindItemToMinecraftModel](物品.md#binditemtominecraftmodel) | <span style="display:inline;color:#7575f9">客户端</span> | 将指定物品作为附作物动态挂接到实体原版模型上，在实体原版模型上渲染指定物品。 |
+| [BindItemToSkeletonModel](物品.md#binditemtoskeletonmodel) | <span style="display:inline;color:#7575f9">客户端</span> | 将指定物品作为附作物动态挂接到实体的网易版骨骼模型，在实体的网易版骨骼模型上指定骨骼渲染指定物品。 |
+| [CancelShearsDestroyBlockSpeed](物品.md#cancelshearsdestroyblockspeed) | <span style="display:inline;color:#ff5555">服务端</span> |  取消剪刀对某一方块的破坏速度设置 |
+| [CancelShearsDestroyBlockSpeedAll](物品.md#cancelshearsdestroyblockspeedall) | <span style="display:inline;color:#ff5555">服务端</span> |  取消剪刀对全部方块的破坏速度设置 |
 | [ChangeArmorTextures](物品.md#changearmortextures) | <span style="display:inline;color:#7575f9">客户端</span> | 修改盔甲在场景中显示和在UI中显示的贴图 |
 | [ChangeItemTexture](物品.md#changeitemtexture) | <span style="display:inline;color:#7575f9">客户端</span> | 替换物品的贴图，修改后所有用到该贴图的物品都会被改变，后续创建的此类物品也会被改变。会同时修改物品在UI界面上的显示，手持时候的显示与场景掉落的显示。 |
 | [GetAllEnchantsInfo](物品.md#getallenchantsinfo) | <span style="display:inline;color:#ff5555">服务端</span> | 获取目前已注册的所有附魔信息 |
 | [GetAllEnchantsInfo](物品.md#getallenchantsinfo) | <span style="display:inline;color:#7575f9">客户端</span> | 获取目前已注册的所有附魔信息 |
+| [GetBindBoneForBindItem](物品.md#getbindboneforbinditem) | <span style="display:inline;color:#7575f9">客户端</span> | 查询获取实体上已绑定的物品附着物所绑定的骨骼名称。 |
+| [GetBindItemOffset](物品.md#getbinditemoffset) | <span style="display:inline;color:#7575f9">客户端</span> | 查询获取实体上的物品附着物相对骨骼的位置偏移。 |
+| [GetBindItemRotation](物品.md#getbinditemrotation) | <span style="display:inline;color:#7575f9">客户端</span> | 查询获取实体上的物品附着物相对骨骼的旋转角度。 |
+| [GetBindItemScale](物品.md#getbinditemscale) | <span style="display:inline;color:#7575f9">客户端</span> | 查询获取实体上的物品附着物的缩放比例。 |
 | [GetCustomName](物品.md#getcustomname) | <span style="display:inline;color:#ff5555">服务端</span> | 获取物品的自定义名称，与铁砧修改的名称一致 |
 | [GetItemBasicInfo](物品.md#getitembasicinfo) | <span style="display:inline;color:#ff5555">服务端</span> | 获取物品的基础信息 |
 | [GetItemBasicInfo](物品.md#getitembasicinfo) | <span style="display:inline;color:#7575f9">客户端</span> | 获取物品的基础信息 |
@@ -1280,6 +1305,10 @@ sidebarDepth: 1
 | [LookupItemByName](物品.md#lookupitembyname) | <span style="display:inline;color:#ff5555">服务端</span> | 判定指定identifier的物品是否存在 |
 | [RemoveItemLayer](物品.md#removeitemlayer) | <span style="display:inline;color:#ff5555">服务端</span> | 移除物品的叠加贴图。物品叠加贴图详见SetItemLayer |
 | [SetAttackDamage](物品.md#setattackdamage) | <span style="display:inline;color:#ff5555">服务端</span> |  设置物品的攻击伤害值 |
+| [SetBindBoneForBindItem](物品.md#setbindboneforbinditem) | <span style="display:inline;color:#7575f9">客户端</span> | 改变实体上已绑定的物品附着物所绑定的骨骼，又或者移除该物品附着物。 |
+| [SetBindItemOffset](物品.md#setbinditemoffset) | <span style="display:inline;color:#7575f9">客户端</span> | 设置实体上的物品附着物相对骨骼的位置偏移。 |
+| [SetBindItemRotation](物品.md#setbinditemrotation) | <span style="display:inline;color:#7575f9">客户端</span> | 设置实体上的物品附着物相对骨骼的旋转角度。 |
+| [SetBindItemScale](物品.md#setbinditemscale) | <span style="display:inline;color:#7575f9">客户端</span> | 设置实体上的物品附着物的缩放比例。 |
 | [SetCompassEntity](物品.md#setcompassentity) | <span style="display:inline;color:#7575f9">客户端</span> | 设置指南针朝向的实体 |
 | [SetCompassTarget](物品.md#setcompasstarget) | <span style="display:inline;color:#7575f9">客户端</span> | 设置指南针的朝向位置 |
 | [SetCustomName](物品.md#setcustomname) | <span style="display:inline;color:#ff5555">服务端</span> | 设置物品的自定义名称，与使用铁砧重命名一致 |
@@ -1290,7 +1319,7 @@ sidebarDepth: 1
 | [SetItemTierLevel](物品.md#setitemtierlevel) | <span style="display:inline;color:#ff5555">服务端</span> |  设置工具类物品的挖掘等级 |
 | [SetItemTierSpeed](物品.md#setitemtierspeed) | <span style="display:inline;color:#ff5555">服务端</span> |  设置工具类物品的挖掘速度(可通过userData中的ModTierSpeed获取挖掘速度) |
 | [SetMaxStackSize](物品.md#setmaxstacksize) | <span style="display:inline;color:#ff5555">服务端</span> |  设置物品的最大堆叠数量（存档） |
-| [SetShearsDestoryBlockSpeed](物品.md#setshearsdestoryblockspeed) | <span style="display:inline;color:#ff5555">服务端</span> |  设置剪刀对某一方块的破坏速度 |
+| [SetShearsDestroyBlockSpeed](物品.md#setshearsdestroyblockspeed) | <span style="display:inline;color:#ff5555">服务端</span> |  设置剪刀对某一方块的破坏速度 |
 
 #### 通用<span id = "通用1"></span>
 | 接口| <div style="width: 3em"></div> | 描述 |
@@ -1759,7 +1788,9 @@ sidebarDepth: 1
 #### 通用设置
 | 接口| <div style="width: 3em"></div> | 描述 |
 | --- | --- | --- |
+| [CloseSettingUI](自定义UI/通用设置.md#closesettingui) | <span style="display:inline;color:#7575f9">客户端</span> | 关闭模组信息界面 |
 | [GetSettingInst](自定义UI/通用设置.md#getsettinginst) | <span style="display:inline;color:#7575f9">客户端</span> | 获取当前模组的通用设置实例 |
+| [OpenSettingUI](自定义UI/通用设置.md#opensettingui) | <span style="display:inline;color:#7575f9">客户端</span> | 在模组信息界面中打开设置页面（此操作仅可访问本模组的配置选项） |
 | [RegisterSettingInst](自定义UI/通用设置.md#registersettinginst) | <span style="display:inline;color:#7575f9">客户端</span> | 注册通用设置实例 |
 #### 音效<span id = "音效2"></span>
 | 接口 | <div style="width: 3em"></div> | 描述 |
